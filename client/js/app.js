@@ -35,9 +35,15 @@ function fetchDataAndInitialize(map) {
         if (selectedCountry === "") {
           displayLocations(locationsData, map); // default to show all locations
         } else {
-          fetchCountryBoundary(selectedCountry).then((boundary) => {
-            filterLocationsByCountryBoundary(boundary, locationsData, map);
-          });
+          showLoadingSpinner();
+          fetchCountryBoundary(selectedCountry)
+            .then((boundary) => {
+              filterLocationsByCountryBoundary(boundary, locationsData, map);
+          }).catch((error) => {
+            console.error("Error fetching country boundary:", error);
+          }).finally(() => {
+            hideLoadingSpinner();
+          })
         }
       });
     })
@@ -113,7 +119,6 @@ function displayLocations(locations, map) {
 }
 
 function fetchCountryBoundary(countryCode) {
-  // using GeoJSON data containing country boundaries
   const url =
     "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson";
 
