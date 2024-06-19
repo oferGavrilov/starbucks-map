@@ -62,5 +62,3 @@ function getAlpha3Code(countryCode) {
 }
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-export default app;
