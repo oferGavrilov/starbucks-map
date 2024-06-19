@@ -110,8 +110,17 @@ function displayLocations(locations, map) {
     features: features,
   });
 
+  const iconStyle = new ol.style.Style({
+    image: new ol.style.Icon({
+      anchor: [0.5, 1],
+      src: 'imgs/marker.png',
+      scale: 0.7
+    }),
+  });
+
   const vectorLayer = new ol.layer.Vector({
     source: vectorSource,
+    style: iconStyle,
     name: "starbucksLayer",
   });
 
