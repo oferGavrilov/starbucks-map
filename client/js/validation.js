@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const API_URL = getAPI_URL();
   const validateButton = document.getElementById("validate-button");
   const validationResult = document.getElementById("validation-result");
 
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     validateButton.innerHTML = '<div class="spinner-button"></div> Validating...';
 
     axios
-      .post("http://localhost:3000/validate-location", {
+      .post(`${API_URL}/validate-location`, {
         latitude,
         longitude,
         countryCode,

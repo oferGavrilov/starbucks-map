@@ -5,8 +5,14 @@ import cors from "cors";
 import iso from "iso-3166-1";
 
 const app = express();
+
 app.use(bodyParser.json());
-app.use(cors());
+
+app.use(cors({
+    origin: "*",
+    methods: "GET,POST",
+    allowedHeaders: "Content-Type, Authorization"
+}));
 
 const PORT = process.env.PORT || 3000;
 
