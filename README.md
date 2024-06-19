@@ -2,6 +2,11 @@
 
 This project displays a map with all Starbucks locations and provides a filtering feature to display stores based on selected countries. Additionally, it includes a service to check if a set of coordinates falls within a specified country.
 
+
+![Screenshot of the Starbucks Location Map](./screenshots/map.png)
+
+![Screenshot of the validation service](./screenshots/validate-service.png)
+
 ## Features
 
 1. **Map Display**:
